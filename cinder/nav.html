@@ -1,11 +1,11 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
     <div class="container">
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
             {% if include_nav or include_next_prev or repo_url %}
             <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -18,20 +18,15 @@
         </div>
 
         <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse main-collapse collapse">
             {% if include_nav %}
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
                 {% for nav_item in nav %}
-                {% if nav_item.children %}
-                    <li class="dropdown{% if nav_item.active %} active{% endif %}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        {% for nav_item in nav_item.children %}
-                            {% include "nav-sub.html" %}
-                        {% endfor %}
-                        </ul>
-                    </li>
+                {% if nav_item.title == "Melbourne" %}
+                  <li {% if nav_item.active %}class="active"{% endif %}>
+                      <a href="{{ base_url }}/melbourne">{{ nav_item.title }}</a>
+                  </li>
                 {% else %}
                     <li {% if nav_item.active %}class="active"{% endif %}>
                         <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>

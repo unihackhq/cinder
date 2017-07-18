@@ -28,10 +28,67 @@ img {
   height: auto;
 }
 
-a.navbar-brand {
+#main-nav a.navbar-brand {
   background-image: url("../img/header-logo.png");
   background-position: 15px center;
   background-repeat: no-repeat;
   width: 200px;
   text-indent: -999em;
+}
+
+#section-nav {
+  background: white;
+  border-bottom: 1px solid #cccccc;
+  margin-top: -18px;
+  position: relative;
+  z-index: 97;
+}
+
+#section-nav a.navbar-brand {
+  font-weight: 500;
+  color: #606060;
+}
+
+#section-nav .navbar-toggle .icon-bar {
+  background: #606060;
+}
+
+#section-nav .navbar-toggle:hover .icon-bar {
+  background: #b3b3b3;
+}
+
+#section-nav .navbar-collapse {
+  border-top: 1px solid #d0d0d0;
+  background: #efefef;
+}
+
+#section-nav .navbar-collapse a {
+  color: #606060;
+}
+
+#section-nav .navbar-nav li a:hover, #section-nav .navbar-nav li a:focus {
+  background: #f0f0f0;
+  text-decoration: underline;
+}
+
+#section-nav .navbar-nav .open .dropdown-menu {
+  background: #f0f0f0;
+}
+
+#section-nav .navbar-nav>.active>a, #section-nav .navbar-nav>.active>a:hover,
+#section-nav .navbar-nav>.active>a:focus {
+  background: #e0e0e0;
+}
+
+@media (min-width: 768px) {
+  #section-nav .navbar-collapse {
+    border-top: none;
+    background: white;
+  }
+}
+
+@media (min-width: 992px) {
+    body.has-section .bs-sidebar.affix {
+        top: 120px;
+    }
 }
