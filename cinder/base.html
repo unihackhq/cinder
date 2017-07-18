@@ -35,10 +35,19 @@
     <script>
     WebFont.load({
         google: {
-            families: ['Open Sans', 'PT Sans']
+            families: ['Open Sans']
         }
     });
     </script>
+
+    {% if page %}
+    <script>
+      // Current page data
+      var mkdocs_page_name = {{ page.title|tojson|safe }};
+      var mkdocs_page_input_path = {{ page.input_path|tojson|safe }};
+      var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
+    </script>
+    {% endif %}
 
     {% if google_analytics %}
     <script>
